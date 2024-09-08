@@ -3,8 +3,9 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var db = mongoose.connect("mongodb://localhost/swag-shop");
+
 var Product = require("./models/product");
-var WishList = require("./models/Whislist");
+var WishList = require("./models/Wishlist"); // Corrected the typo
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -86,10 +87,6 @@ app.put("/wishlist/product/add", async (req, res) => {
   }
 });
 
-app.get("/product", function (req, res) {
-  res.send("get request");
-});
-
-app.listen(3000, function () {
-  console.log("Server is running on port 3000");
+app.listen(3004, function () {
+  console.log("Server is running on port 3004");
 });
